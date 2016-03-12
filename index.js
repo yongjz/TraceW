@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './src/js/main.js';
+//import './src/css/font-roboto.css';
 
 //Some components use react-tap-event-plugin to listen for touch events. 
 //This dependency is temporary and will go away once react v1.0 is released. 
@@ -11,9 +12,6 @@ injectTapEventPlugin();
 var app = document.getElementById('app');
 
 ReactDOM.render(
-  <div>
-    <h1>Trace Web UI</h1>
-    <Main />
-  </div>,
+  <Main />,
   app
 );
