@@ -6,6 +6,65 @@ import ClearFix from 'material-ui/lib/clearfix';
 import DoneIcon from 'material-ui/lib/svg-icons/action/done';
 import Divider from 'material-ui/lib/divider';
 import Subheader from 'material-ui/lib/Subheader/';
+import Count from './Count';
+
+class MerchandiseInfoTextField extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.onPressHandler = this.onPressHandler.bind(this);
+
+    this.state = {
+      merCounts: this.props.initialCount,
+    };
+  }
+  
+  onPressHandler() {
+    this.setState({
+      merCounts: this.state.merCounts - 1,
+    });
+  }
+  
+  render() {
+    return (
+      <div style={styles.context}>
+        <p style={styles.subtitle}>生成二维码－填写商品信息</p>
+        <Divider />
+        <TextField
+          hintText="商品名称"
+          floatingLabelText="商品名称"
+          multiLine={true}
+          fullWidth={true}
+          /><br/><br/>
+        <Count title={'商品数量'} count={100}/>
+        <TextField
+          hintText="受理机关"
+          floatingLabelText="受理机关"
+          multiLine={true}
+          fullWidth={true}
+          /><br/>
+        <TextField
+          hintText="产品类别"
+          floatingLabelText="产品类别"
+          multiLine={true}
+          fullWidth={true}
+          /><br/><br/>
+        <Count title={'价格区间'} count={100}/>
+        <Count count={200}/>
+        <br/><br/>
+        <DatePicker hintText="生产日期" fullWidth={true} /><br/>
+        <DatePicker hintText="过期日期" mode="landscape" fullWidth={true} /><br/>
+        <RaisedButton
+          style={styles.button}
+          label="提交并预生成二维码"
+          secondary={true}
+          icon={<DoneIcon />}
+          />
+        <ClearFix />
+
+      </div>
+    );
+  }
+}
 
 const styles = {
   context: {
@@ -41,89 +100,5 @@ const styles = {
     paddingRight: 10,
   }
 };
-
-class MerchandiseInfoTextField extends React.Component {
-  render() {
-    return (
-      <div style={styles.context}>
-        <p style={styles.subtitle}>生成二维码－填写商品信息</p>
-        <Divider />
-        <TextField
-          hintText="商品名称"
-          floatingLabelText="商品名称"
-          multiLine={true}
-          fullWidth={true}
-          /><br/><br/>
-        <div>
-          <p>商品数量</p>
-          <RaisedButton label="－" />
-          <TextField
-            hintText="商品数量"
-            defaultValue="100"
-            multiLine={true}
-            underlineShow={false}
-            inputStyle={styles.numberInputText}
-            style={styles.numberText}
-            />
-          <RaisedButton label="＋" />
-        </div>
-        <TextField
-          hintText="受理机关"
-          floatingLabelText="受理机关"
-          multiLine={true}
-          fullWidth={true}
-          /><br/>
-        <TextField
-          hintText="产品类别"
-          floatingLabelText="产品类别"
-          multiLine={true}
-          fullWidth={true}
-          /><br/>
-        <div>
-          <p>价格区间</p>
-          <RaisedButton label="－" />
-          <TextField
-            hintText="价格区间最小值"
-            defaultValue="100"
-            multiLine={true}
-            underlineShow={false}
-            inputStyle={{ paddingLeft: '60px', fontSize: 20 }}
-            style={styles.numberText}
-            />
-          <RaisedButton label="＋" />
-        </div>
-        <br />
-        <div>
-          <RaisedButton label="－" />
-          <TextField
-            hintText="价格区间最大值"
-            defaultValue="200"
-            multiLine={true}
-            underlineShow={false}
-            inputStyle={{ paddingLeft: '60px', fontSize: 20 }}
-            style={styles.numberText}
-            />
-          <RaisedButton label="＋" />
-        </div>
-        <TextField
-          hintText="价格区间"
-          floatingLabelText="价格区间"
-          multiLine={true}
-          fullWidth={true}
-          /><br/><br/>
-        <DatePicker hintText="生产日期" fullWidth={true} /><br/>
-        <DatePicker hintText="过期日期" mode="landscape" fullWidth={true} /><br/>
-        <RaisedButton
-          style={styles.button}
-          label="提交并预生成二维码"
-          secondary={true}
-          icon={<DoneIcon />}
-          />
-        <ClearFix />
-
-      </div>
-    );
-  }
-}
 
 export default MerchandiseInfoTextField;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './src/js/main.js';
+import Test from './src/js/test.js';
 //import './src/css/font-roboto.css';
 
 //Some components use react-tap-event-plugin to listen for touch events. 
