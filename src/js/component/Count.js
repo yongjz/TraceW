@@ -18,18 +18,22 @@ class Count extends React.Component {
     this.setState({
       merCounts: this.state.merCounts - 1,
     });
+    this.props.handleCount(this.state.merCounts - 1);
   }
   
   onPressPlusHandler() {
     this.setState({
       merCounts: this.state.merCounts + 1,
     });
+    this.props.handleCount(this.state.merCounts + 1);
   }
   
   onChangeHandler(event) {
     this.setState({
-      merCounts: event.target.value,
+      //Convert string to number
+      merCounts: Number(event.target.value),
     });
+    this.props.handleCount(event.target.value);
   }
 
   render() {
@@ -39,11 +43,11 @@ class Count extends React.Component {
         <RaisedButton label="－" onClick={this.onPressMinusHandler}/>
         <TextField
           defaultValue={this.props.count}
-          value={this.state.merCounts + ''}
           multiLine={true}
           underlineShow={false}
           inputStyle={styles.numberInputText}
           style={styles.numberText}
+          value={this.state.merCounts+''}
           onChange={this.onChangeHandler}
           />
         <RaisedButton label="＋" onClick={this.onPressPlusHandler}/>
@@ -51,13 +55,6 @@ class Count extends React.Component {
     );
   }
 }
-
-Count.propTypes = {
-  initialCount: React.PropTypes.number
-};
-Count.defaultProps = {
-  initialCount: 100
-};
 
 const styles = {
   numberText: {

@@ -11,19 +11,71 @@ import Count from './Count';
 class MerchandiseInfoTextField extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.onPressHandler = this.onPressHandler.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      merCounts: this.props.initialCount,
+      name: null,
+      counts: 100,
+      acceptanceAuthority: null,
+      catalog: null,
+      minPrice: 100,
+      maxPrice: 200,
+      productionDate: null,
+      shelfLife: null,
     };
   }
-  
-  onPressHandler() {
+
+  setValue(field, event) {
+    var object = {};
+    object[field] = event.target.value;
+    this.setState(object);
+  }
+
+  handleProductionDateChange(event, date) {
     this.setState({
-      merCounts: this.state.merCounts - 1,
+      productionDate: date
     });
   }
-  
+  handleShelfLifeChange(event, date) {
+    this.setState({
+      shelfLife: date
+    });
+  }
+
+  handleCountChange(value) {
+    this.setState({
+      counts: value
+    });
+  }
+
+  handleMinPriceChange(value) {
+    this.setState({
+      minPrice: value
+    });
+  }
+
+  handleMaxPriceChange(value) {
+    this.setState({
+      maxPrice: value
+    });
+  }
+
+  handleSubmit() {
+    console.log(this.state);
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: this.state,
+      success: function(data) {
+        console.log(data);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  }
+
   render() {
     return (
       <div style={styles.context}>
@@ -34,37 +86,68 @@ class MerchandiseInfoTextField extends React.Component {
           floatingLabelText="商品名称"
           multiLine={true}
           fullWidth={true}
+          value={this.state.name}
+          onChange={this.setValue.bind(this, 'name')}
           /><br/><br/>
-        <Count title={'商品数量'} count={100}/>
+        <Count 
+          title={'商品数量'}
+          count={this.state.counts}
+          handleCount={this.handleCountChange.bind(this)}/>
         <TextField
           hintText="受理机关"
           floatingLabelText="受理机关"
           multiLine={true}
           fullWidth={true}
+          value={this.state.acceptanceAuthority}
+          onChange={this.setValue.bind(this, 'acceptanceAuthority')}
           /><br/>
         <TextField
           hintText="产品类别"
           floatingLabelText="产品类别"
           multiLine={true}
           fullWidth={true}
+          value={this.state.catalog}
+          onChange={this.setValue.bind(this, 'catalog')}
           /><br/><br/>
-        <Count title={'价格区间'} count={100}/>
-        <Count count={200}/>
+        <Count
+          title={'价格区间'}
+          count={this.state.minPrice}
+          handleCount={this.handleMinPriceChange.bind(this)}/>
+        <Count
+          count={this.state.maxPrice}
+          handleCount={this.handleMaxPriceChange.bind(this)}/>
         <br/><br/>
-        <DatePicker hintText="生产日期" fullWidth={true} /><br/>
-        <DatePicker hintText="过期日期" mode="landscape" fullWidth={true} /><br/>
+        <DatePicker
+          hintText="生产日期"
+          fullWidth={true}
+          value={this.state.productionDate}
+          onChange={this.handleProductionDateChange.bind(this)}
+          /><br/>
+        <DatePicker
+          hintText="过期日期"
+          mode="landscape"
+          fullWidth={true}
+          value={this.state.shelfLife}
+          onChange={this.handleShelfLifeChange.bind(this)}
+          /><br/>
         <RaisedButton
           style={styles.button}
           label="提交并预生成二维码"
           secondary={true}
           icon={<DoneIcon />}
+          onClick={this.handleSubmit}
           />
         <ClearFix />
-
       </div>
     );
   }
 }
+
+MerchandiseInfoTextField.propTypes = {
+  counts: React.PropTypes.number,
+  minPrice: React.PropTypes.number,
+  maxPrice: React.PropTypes.number,
+};
 
 const styles = {
   context: {
