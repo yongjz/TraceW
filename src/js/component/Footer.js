@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../lib/mdl/material.css';
 
 class Footer extends React.Component {
 

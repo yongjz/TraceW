@@ -9,6 +9,7 @@ import Subheader from 'material-ui/lib/Subheader/';
 import Count from './Count';
 import Stepper from './Stepper';
 import $ from '../../lib/jquery-1.12.1';
+import { browserHistory } from 'react-router'
 
 class MerchandiseInfoTextField extends React.Component {
   constructor(props, context) {
@@ -76,6 +77,7 @@ class MerchandiseInfoTextField extends React.Component {
         console.log(err);
       }.bind(this)
     });
+    browserHistory.push('/preview');
   }
 
   render() {
@@ -83,7 +85,7 @@ class MerchandiseInfoTextField extends React.Component {
       <div style={styles.context}>
         <div>
           <p style={styles.subtitle}>生成二维码－填写商品信息</p>
-          <Stepper />
+          <Stepper firstStep={true}/>
           <ClearFix />
         </div>
         <ClearFix />
