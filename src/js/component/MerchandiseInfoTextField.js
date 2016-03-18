@@ -7,6 +7,8 @@ import DoneIcon from 'material-ui/lib/svg-icons/action/done';
 import Divider from 'material-ui/lib/divider';
 import Subheader from 'material-ui/lib/Subheader/';
 import Count from './Count';
+import Stepper from './Stepper';
+import $ from '../../lib/jquery-1.12.1';
 
 class MerchandiseInfoTextField extends React.Component {
   constructor(props, context) {
@@ -71,7 +73,7 @@ class MerchandiseInfoTextField extends React.Component {
         console.log(data);
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.log(err);
       }.bind(this)
     });
   }
@@ -79,7 +81,12 @@ class MerchandiseInfoTextField extends React.Component {
   render() {
     return (
       <div style={styles.context}>
-        <p style={styles.subtitle}>生成二维码－填写商品信息</p>
+        <div>
+          <p style={styles.subtitle}>生成二维码－填写商品信息</p>
+          <Stepper />
+          <ClearFix />
+        </div>
+        <ClearFix />
         <Divider />
         <TextField
           hintText="商品名称"
@@ -159,28 +166,9 @@ const styles = {
   },
   subtitle: {
     fontSize: 24,
+    marginRight: 50,
     paddingTop: 20,
-  },
-  numberText: {
-    width: 150,
-    height: 30,
-    verticalAlign: 'top',
-  },
-  numberInputText: {
-    paddingLeft: 50,
-    paddingRight: 50,
-    fontSize: 20,
-  },
-  
-  connectLine: {
-    display: 'inline-block',
-    width: 50,
-    textAlign: 'center',
-    verticalAlign: 'top',
-    fontWeight: 'bold',
-    paddingTop: 5,
-    paddingLeft: 10,
-    paddingRight: 10,
+    float: 'left',
   }
 };
 

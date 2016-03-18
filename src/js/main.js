@@ -8,8 +8,8 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Header title='Trace Web-UI'/>
-        <MerchandiseInfoTextField />
+        <Header title="Trace Web-UI"/>
+        <MerchandiseInfoTextField url="/save"/>
         <Footer />
       </div>
     );
