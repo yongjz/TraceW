@@ -98,7 +98,7 @@ class MerchandiseInfoTextField extends React.Component {
           value={this.state.name}
           onChange={this.setValue.bind(this, 'name')}
           /><br/><br/>
-        <Count 
+        <Count
           title={'商品数量'}
           count={this.state.counts}
           handleCount={this.handleCountChange.bind(this)}/>

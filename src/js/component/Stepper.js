@@ -5,27 +5,67 @@ import Avatar from 'material-ui/lib/avatar';
 import Styles from 'material-ui/lib/styles';
 const colors = Styles.Colors;
 
-
 class Stepper extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  getIconStyles() {
+    const {
+      firstStep,
+      secondStep,
+      thirdStep,
+    } = this.props;
+    
+    const icon = {
+      margin: 5,
+    };
+    const iconActive = {
+      margin: 5,
+      backgroundColor: colors.blue500
+    };
+    
+    const firstIconStyle = ((firstStep || secondStep || thirdStep) ?
+      iconActive :
+      icon);
+    
+    const secondIconStyle = ((secondStep || thirdStep) ?
+      iconActive :
+      icon);
+      
+      const thirdIconStyle = ((thirdStep) ?
+      iconActive :
+      icon);
+    
+    const styles = {
+      firstIconStyle: firstIconStyle,
+      secondIconStyle: secondIconStyle,
+      thirdIconStyle: thirdIconStyle,
+    };
+
+    return styles;
+  }
+
   render() {
+    const iconStyles = this.getIconStyles();
     return (
       <Paper style={styles.container}>
         <div style={styles.element}>
-          <Avatar style={styles.iconActive}>
+          <Avatar style={iconStyles.firstIconStyle}>
             <span>1</span>
           </Avatar>
           <span>表单填写</span>
         </div>
-        <div style={connectorLineLeft}></div>
+        <div style={connectorLine}></div>
         <div style={styles.element}>
-          <Avatar style={styles.icon}>
+          <Avatar style={iconStyles.secondIconStyle}>
             <span>2</span>
           </Avatar>
-          <span>内容确认</span>
+          <span>二维码确认</span>
         </div>
-        <div style={connectorLineLeft}></div>
+        <div style={connectorLine}></div>
         <div style={styles.element}>
-          <Avatar style={styles.icon}>
+          <Avatar style={iconStyles.thirdIconStyle}>
             <span>3</span>
           </Avatar>
           <span>打印/导出</span>
@@ -35,12 +75,12 @@ class Stepper extends React.Component {
   }
 }
 
-const connectorLineLeft = {
-  width:50,
-  height:1,
+const connectorLine = {
+  width: 50,
+  height: 1,
   marginLeft: 5,
   marginBottom: 5,
-  padding:0,
+  padding: 0,
   backgroundColor: '#BDBDBD',
   overflow: 'hidden',
   display: 'inline-block',
@@ -53,14 +93,7 @@ const styles = {
     marginBottom: 20,
     textAlign: 'center',
     display: 'inline-block',
-    float:'left'
-  },
-  icon: {
-    margin: 5,
-  },
-  iconActive: {
-    margin: 5,
-    backgroundColor:colors.blue500
+    float: 'left'
   },
   element: {
     display: 'inline-block',

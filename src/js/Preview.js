@@ -5,6 +5,7 @@ import Footer from './component/Footer';
 import Stepper from './component/Stepper';
 import ClearFix from 'material-ui/lib/clearfix';
 import Divider from 'material-ui/lib/divider';
+import QrCodeGridList from './component/QrCodeGridList';
 
 class Preview extends React.Component {
   render() {
@@ -20,13 +21,7 @@ class Preview extends React.Component {
           <ClearFix />
           <Divider />
           
-          <div>
-            二维码列表
-          </div>
-          
-          <div>
-            生成报告
-          </div>
+          <QrCodeGridList />
         </div>
         <Footer />
       </div>

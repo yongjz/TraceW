@@ -4,21 +4,32 @@ import GridTile from 'material-ui/lib/grid-list/grid-tile';
 import StarBorder from 'material-ui/lib/svg-icons/toggle/star-border';
 import IconButton from 'material-ui/lib/icon-button';
 import Paper from 'material-ui/lib/paper';
+import RaisedButton from 'material-ui/lib/raised-button';
+import $ from '../../lib/jquery-1.12.1';
 
 class QrCodeGridList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  handleSubmit() {
+    window.print();
+  }
+  
+  
   render() {
     return (
       <div className="container">
         <div className="row">
         <div className="col-md-9">
           <div className="row">
-
             {tilesData.map(tile => (
               <div key={tile.title}>
-                <div className="col-md-2">
+                <div className="col-md-2 col-sm-3 col-xs-6">
                   <img src={imgUrl} className="img-responsive" />
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-2 col-sm-3 col-xs-6">
                   <img src={imgUrl} className="img-responsive" />
                 </div>
               </div>
@@ -26,6 +37,12 @@ class QrCodeGridList extends React.Component {
           </div>
         </div>
         <div className="col-md-3">report</div>
+          <RaisedButton
+          label="打印"
+          secondary={true}
+          //icon={<DoneIcon />}
+          onClick={this.handleSubmit}
+          />
         </div>
       </div>
     );
@@ -77,31 +94,31 @@ const tilesData = [
     title: 'Camera',
     author: 'Danson67',
   },
-  {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Morning',
-    author: 'fancycrave1',
-  },
-  {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Hats',
-    author: 'Hans',
-  },
-  {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Honey',
-    author: 'fancycravel',
-  },
-  {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Vegetables',
-    author: 'jill111',
-  },
-  {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
-  },
+  // {
+  //   img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
+  //   title: 'Morning',
+  //   author: 'fancycrave1',
+  // },
+  // {
+  //   img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
+  //   title: 'Hats',
+  //   author: 'Hans',
+  // },
+  // {
+  //   img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
+  //   title: 'Honey',
+  //   author: 'fancycravel',
+  // },
+  // {
+  //   img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
+  //   title: 'Vegetables',
+  //   author: 'jill111',
+  // },
+  // {
+  //   img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
+  //   title: 'Water plant',
+  //   author: 'BkrmadtyaKarki',
+  // },
 ];
 
 const styles = {

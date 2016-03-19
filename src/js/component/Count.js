@@ -1,6 +1,9 @@
 import React from 'react';
 import TextField from 'material-ui/lib/text-field';
 import RaisedButton from 'material-ui/lib/raised-button';
+import FlatButton from 'material-ui/lib/flat-button';
+import Styles from 'material-ui/lib/styles';
+const colors = Styles.Colors;
 
 class Count extends React.Component {
   constructor(props, context) {
@@ -40,7 +43,11 @@ class Count extends React.Component {
     return (
       <div>
         <p>{this.props.title}</p>
-        <RaisedButton label="－" onClick={this.onPressMinusHandler}/>
+        <FlatButton
+          label="－"
+          onClick={this.onPressMinusHandler}
+          backgroundColor={colors.grey200}
+          />
         <TextField
           defaultValue={this.props.count}
           multiLine={true}
@@ -50,7 +57,11 @@ class Count extends React.Component {
           value={this.state.merCounts+''}
           onChange={this.onChangeHandler}
           />
-        <RaisedButton label="＋" onClick={this.onPressPlusHandler}/>
+        <FlatButton
+          label="＋"
+          onClick={this.onPressPlusHandler}
+          backgroundColor={colors.grey200}
+          />
       </div>
     );
   }
@@ -66,7 +77,9 @@ const styles = {
     paddingLeft: 60,
     fontSize: 20,
   },
-  
+  btn: {
+    color: '#b3e5fc'
+  },
   connectLine: {
     display: 'inline-block',
     width: 50,
