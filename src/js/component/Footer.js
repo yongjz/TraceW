@@ -8,12 +8,21 @@ class Footer extends React.Component {
     return (
       <div className="sticky-footer">
         <Divider style={styles.footDivider}/>
-        <ul style={styles.list}>
-          <li className="pull-left" style={styles.item}>© 2016 WhuLiss, Lab.</li>
-          <li className="pull-left" style={styles.item}><a href="#">Privacy & Terms</a></li>
-          <li className="pull-left" style={styles.item}><a href="#">Contact</a></li>
-          <li className="pull-left" style={styles.item}><a href="#">Help</a></li>
+        <ul style={styles.list} className="list-inline">
+          <li style={styles.item}>
+            © 2016 WhuLiss, Lab.
+          </li>
+          <li style={styles.item}>
+            <a href="#">Privacy & Terms</a>
+          </li>
+          <li style={styles.item}>
+            <a href="#">Contact</a>
+          </li>
+          <li style={styles.item}>
+            <a href="#">Help</a>
+          </li>
         </ul>
+        
       </div>
     );
   }
@@ -26,7 +35,7 @@ const styles={
     marginBottom:20,
   },
   item: {
-    marginLeft:30,
+    marginLeft:20,
   },
   footDivider: {
     marginTop: 20,

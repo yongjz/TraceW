@@ -20,7 +20,7 @@ class Preview extends React.Component {
           </div>
           <ClearFix />
           <Divider />
-          
+          <br />
           <QrCodeGridList />
         </div>
         <Footer />

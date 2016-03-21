@@ -138,7 +138,7 @@ class MerchandiseInfoTextField extends React.Component {
           fullWidth={true}
           value={this.state.shelfLife}
           onChange={this.handleShelfLifeChange.bind(this)}
-          /><br/>
+          />
         <RaisedButton
           style={styles.button}
           label="提交并预生成二维码"

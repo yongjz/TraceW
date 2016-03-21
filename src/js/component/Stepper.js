@@ -98,6 +98,7 @@ const styles = {
   element: {
     display: 'inline-block',
     marginTop: 3,
+    fontSize: 16,
   }
 };
 

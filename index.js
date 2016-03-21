@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
-import Main from './src/js/main.js';
+import Main from './src/js/Main';
 import Preview from './src/js/Preview';
+import Logistics from './src/js/Logistics';
+import Validate from './src/js/Validate';
 import Example from './src/js/example';
 import QrCodeGridList from './src/js/component/QrCodeGridList';
 
@@ -18,8 +20,9 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={Main}/>
     <Route path="/preview" component={Preview}/>
+    <Route path="/logistics" component={Logistics}/>
+    <Route path="/validate" component={Validate}/>
     <Route path="/example" component={Example}/>
     <Route path="/list" component={QrCodeGridList}/>
-    
   </Router>
   ), app);
