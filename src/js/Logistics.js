@@ -9,9 +9,8 @@ class Logistics extends React.Component {
     return (
       <div>
         <Header title="Trace Web-UI"/>
-        <div style={context}>
+        <div style={styles.context}>
           <MerchandiseCard />
-          <br />
           <LogisticsStepper />
         </div>
         <Footer />
@@ -20,8 +19,11 @@ class Logistics extends React.Component {
   }
 }
 
-const context = {
-  margin: 20,
-};
+const styles = {
+  context: {
+    margin: 20,
+    paddingBottom: 20
+  }
+}
 
 export default Logistics;

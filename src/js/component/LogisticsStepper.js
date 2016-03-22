@@ -11,7 +11,7 @@ const colors = styles.Colors;
 class LogisticsStepper extends React.Component {
   render() {
     return (
-      <div>
+      <div style={logistics}>
         <div className="step">
           <div>
             <Avatar
@@ -77,6 +77,10 @@ const context = {
 };
 const logisticsDesc = {
   height: 100,
+}
+const logistics = {
+  marginLeft: 30,
+  marginTop: 30,
 }
 
 export default LogisticsStepper;

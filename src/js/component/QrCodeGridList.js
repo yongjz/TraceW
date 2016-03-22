@@ -8,7 +8,11 @@ import RaisedButton from 'material-ui/lib/raised-button';
 import Divider from 'material-ui/lib/divider';
 import Dialog from 'material-ui/lib/dialog';
 import FlatButton from 'material-ui/lib/flat-button';
+import DoneIcon from 'material-ui/lib/svg-icons/action/done';
+import stylesLib from 'material-ui/lib/styles';
 import $ from '../../lib/jquery-1.12.1';
+
+const colors = stylesLib.Colors;
 
 class QrCodeGridList extends React.Component {
   constructor(props) {
@@ -16,39 +20,110 @@ class QrCodeGridList extends React.Component {
     this.handlePrint = this.handlePrint.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    
+    this.handlerSubmit = this.handlerSubmit.bind(this);
+
     this.state = {
       open: false,
+      done: false,
     };
   }
 
   handlePrint() {
     window.print();
   }
-  
+
   handleOpen() {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
 
   handleClose() {
-    this.setState({open: false});
+    this.setState({ open: false });
+  };
+
+  handlerSubmit() {
+    this.setState({
+      done: true,
+      open: false,
+    });
   };
 
   render() {
+    var report = this.state.done ?
+      (<div className="col-md-3" style={styles.report}>
+          <p>生成报告</p>
+          <Divider />
+          <Paper style={styles.description}>
+            <p>xx对</p>
+            <p>商品名称：xxxxx</p>
+            <p>制造厂商：xxxxx</p>
+          </Paper>
+          <Paper style={styles.done}>
+            <h3>该套二维码已经生成成功</h3>
+            <DoneIcon />
+          </Paper>
+          <RaisedButton
+            style={styles.doneBtn}
+            label="打印"
+            secondary={true}
+            fullWidth={true}
+            //icon={<DoneIcon />}
+            />
+          <RaisedButton
+            style={styles.doneBtn}
+            label="导出"
+            secondary={true}
+            fullWidth={true}
+            //icon={<DoneIcon />}
+            />
+          <RaisedButton
+            style={styles.doneBtn}
+            label="撤销"
+            primary={true}
+            fullWidth={true}
+            //icon={<DoneIcon />}
+            />
+        </div>
+      )
+      :
+      (<div className="col-md-3" style={styles.report}>
+        <p>生成报告</p>
+        <Divider />
+        <Paper style={styles.description}>
+          <p>xx对</p>
+          <p>商品名称：xxxxx</p>
+          <p>制造厂商：xxxxx</p>
+        </Paper>
+        <p>是否确定生成二维码？</p>
+        <RaisedButton
+          style={styles.submitBtn}
+          label="确定"
+          secondary={true}
+          //icon={<DoneIcon />}
+          fullWidth={true}
+          onTouchTap={this.handleOpen}
+          />
+        <RaisedButton
+          label="返回"
+          secondary={true}
+          //icon={<DoneIcon />}
+          fullWidth={true}
+          />
+      </div>)
+      
     const actions = [
       <FlatButton
-        label="Cancel"
+        label="取消"
         secondary={true}
         onTouchTap={this.handleClose}
-      />,
+        />,
       <FlatButton
-        label="Submit"
+        label="确定"
         primary={true}
         keyboardFocused={true}
-        onTouchTap={this.handleClose}
-      />,
+        onTouchTap={this.handlerSubmit}
+        />,
     ];
-    
+
     return (
       <div className="container">
         <div className="row">
@@ -68,30 +143,7 @@ class QrCodeGridList extends React.Component {
               </div>
             </Paper>
           </div>
-          <div className="col-md-3" style={styles.report}>
-            <p>生成报告</p>
-            <Divider />
-            <Paper style={styles.description}>
-              <p>xx对</p>
-              <p>商品名称：xxxxx</p>
-              <p>制造厂商：xxxxx</p>
-            </Paper>
-            <p>是否确定生成二维码？</p>
-            <RaisedButton
-              style={styles.submitBtn}
-              label="确定"
-              secondary={true}
-              //icon={<DoneIcon />}
-              fullWidth={true}
-              onTouchTap={this.handleOpen}
-            />
-            <RaisedButton
-              label="返回"
-              secondary={true}
-              //icon={<DoneIcon />}
-              fullWidth={true}
-            />
-          </div>
+          {report}
         </div>
         <Dialog
           title="是否确定生成二维码？"
@@ -99,7 +151,7 @@ class QrCodeGridList extends React.Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-        />
+          />
       </div>
     );
   }
@@ -168,13 +220,23 @@ const styles = {
     marginBottom: 10,
   },
   report: {
-    fontSize:16
+    fontSize: 16
   },
   codeContent: {
     marginBottom: 20
   },
   submitBtn: {
-    marginBottom:10
+    marginBottom: 10
+  },
+  done: {
+    padding: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor: colors.grey100
+  },
+  doneBtn: {
+    marginBottom: 10,
+    marginRight: 5,
   }
 };
 
