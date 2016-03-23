@@ -130,13 +130,13 @@ class QrCodeGridList extends React.Component {
           <div className="col-md-9">
             <Paper style={styles.codeContent}>
               <div className="row">
-                {tilesData.map(tile => (
-                  <div key={tile.title}>
+                {qrcodeData.map(qrcode => (
+                  <div key={qrcode.key}>
                     <div className="col-md-2 col-sm-3 col-xs-6">
-                      <img src={imgUrl} className="img-responsive" />
+                      <img src={qrcode.img1} className="img-responsive" />
                     </div>
                     <div className="col-md-2 col-sm-3 col-xs-6">
-                      <img src={imgUrl} className="img-responsive" />
+                      <img src={qrcode.img2} className="img-responsive" />
                     </div>
                   </div>
                 )) }
@@ -157,48 +157,54 @@ class QrCodeGridList extends React.Component {
   }
 }
 
-const imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png';
+const imgUrl = '/src/img/qrcode.jpg';
 
-const tilesData = [
+const qrcodeData = [
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Breakfast',
-    author: 'jill111',
+    key: 1,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Tasty burger',
-    author: 'pashminu',
+    key: 2,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Camera',
-    author: 'Danson67',
+    key: 3,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Morning',
-    author: 'fancycrave1',
+    key: 4,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Hats',
-    author: 'Hans',
+    key: 5,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Honey',
-    author: 'fancycravel',
+    key: 6,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Vegetables',
-    author: 'jill111',
+    key: 7,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
+
   },
   {
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Qr-3.png',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
+    key: 8,
+    img1: '/src/img/qrcode_out.jpg',
+    img2: '/src/img/qrcode_in.jpg'
   },
 ];
 

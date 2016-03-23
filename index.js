@@ -5,7 +5,7 @@ import Main from './src/js/Main';
 import Preview from './src/js/Preview';
 import Logistics from './src/js/Logistics';
 import Validate from './src/js/Validate';
-import Example from './src/js/example';
+import Login from './src/js/Login';
 import QrCodeGridList from './src/js/component/QrCodeGridList';
 
 //Some components use react-tap-event-plugin to listen for touch events. 
@@ -22,7 +22,7 @@ ReactDOM.render((
     <Route path="/preview" component={Preview}/>
     <Route path="/logistics" component={Logistics}/>
     <Route path="/validate" component={Validate}/>
-    <Route path="/example" component={Example}/>
+    <Route path="/login" component={Login}/>
     <Route path="/list" component={QrCodeGridList}/>
   </Router>
   ), app);

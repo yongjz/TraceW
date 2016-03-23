@@ -93,7 +93,6 @@ class MerchandiseInfoTextField extends React.Component {
         <TextField
           hintText="商品名称"
           floatingLabelText="商品名称"
-          multiLine={true}
           fullWidth={true}
           value={this.state.name}
           onChange={this.setValue.bind(this, 'name')}
@@ -101,11 +100,11 @@ class MerchandiseInfoTextField extends React.Component {
         <Count
           title={'商品数量'}
           count={this.state.counts}
-          handleCount={this.handleCountChange.bind(this)}/>
+          handleCount={this.handleCountChange.bind(this)}
+        />
         <TextField
           hintText="受理机关"
           floatingLabelText="受理机关"
-          multiLine={true}
           fullWidth={true}
           value={this.state.acceptanceAuthority}
           onChange={this.setValue.bind(this, 'acceptanceAuthority')}
@@ -113,7 +112,6 @@ class MerchandiseInfoTextField extends React.Component {
         <TextField
           hintText="产品类别"
           floatingLabelText="产品类别"
-          multiLine={true}
           fullWidth={true}
           value={this.state.catalog}
           onChange={this.setValue.bind(this, 'catalog')}
@@ -121,10 +119,12 @@ class MerchandiseInfoTextField extends React.Component {
         <Count
           title={'价格区间'}
           count={this.state.minPrice}
-          handleCount={this.handleMinPriceChange.bind(this)}/>
+          handleCount={this.handleMinPriceChange.bind(this)}
+        />
         <Count
           count={this.state.maxPrice}
-          handleCount={this.handleMaxPriceChange.bind(this)}/>
+          handleCount={this.handleMaxPriceChange.bind(this)}
+        />
         <br/><br/>
         <DatePicker
           hintText="生产日期"
