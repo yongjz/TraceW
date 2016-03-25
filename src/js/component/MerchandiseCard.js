@@ -25,7 +25,7 @@ class CardExampleWithAvatar extends React.Component {
         <CardMedia
           overlay={<CardTitle title="商品图片" />}
         >
-          <img src="src/img/grocery.jpg" />
+          <img src="img/grocery.jpg" />
         </CardMedia>
         <CardTitle title="商品基本信息" />
         <CardText className="clearfix">

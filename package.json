@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors --port 3000",
+    "start": "node server.js",
     "build": "NODE_ENV=production webpack --progress --colors"
   },
   "repository": {
@@ -32,6 +32,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "bootstrap": "^3.3.6",
     "css-loader": "^0.23.1",
+    "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "material-ui": "^0.15.0-alpha.1",
     "postcss-loader": "^0.8.1",
@@ -43,6 +44,7 @@
     "rucksack-css": "^0.8.5",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.5.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.10.0"
   }

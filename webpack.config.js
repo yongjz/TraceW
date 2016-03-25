@@ -1,15 +1,27 @@
+var path = require('path')
+var webpack = require('webpack')
 var rucksack = require('rucksack-css');
-var webpack = require('webpack');
-var path = require('path');
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
-  //context: path.join(__dirname, './src'),
-  entry: './index.js',
+  devtool: 'cheap-module-eval-source-map',
+  entry: [
+    'webpack-hot-middleware/client',
+    './index'
+  ],
   output: {
-    //path: path.join(__dirname, './static'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    //publicPath: '/static/'
   },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+  ],
   module: {
     loaders: [
       {
@@ -48,20 +60,4 @@ module.exports = {
       autoprefixer: true
     })
   ],
-  plugins: [
-    //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development') }
-    }),
-    //压缩js文件
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
-  ],
-  devServer: {
-    contentBase: '.',
-    hot: true
-  }
 }

@@ -157,54 +157,52 @@ class QrCodeGridList extends React.Component {
   }
 }
 
-const imgUrl = '/src/img/qrcode.jpg';
-
 const qrcodeData = [
   {
     key: 1,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
   },
   {
     key: 2,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 3,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 4,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 5,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 6,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 7,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
 
   },
   {
     key: 8,
-    img1: '/src/img/qrcode_out.jpg',
-    img2: '/src/img/qrcode_in.jpg'
+    img1: 'img/qrcode_out.jpg',
+    img2: 'img/qrcode_in.jpg'
   },
 ];
 
