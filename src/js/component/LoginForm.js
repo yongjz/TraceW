@@ -4,6 +4,7 @@ import Checkbox from 'material-ui/lib/checkbox';
 import TextField from 'material-ui/lib/text-field';
 import AccountIcon from 'material-ui/lib/svg-icons/action/account-circle';
 import { browserHistory } from 'react-router';
+import validator from 'validator';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -11,15 +12,43 @@ class LoginForm extends React.Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.validateUsername = this.validateUsername.bind(this);
+    this.validatePassword = this.validatePassword.bind(this);
     
     this.state = {
       username: null,
       password: null,
+      usernametips: null,
+      passwordtips: null
     }
   }
   
   handleLogin() {
-    browserHistory.push('/');
+    if(this.validateUsername() && this.validatePassword()) {
+      browserHistory.push('/');
+    }
+  }
+  
+  validateUsername() {
+    if(!validator.isEmail(this.state.username)) {
+      this.setState({
+        usernametips: "用户名不合法",
+      });
+      return false;
+    } else {
+      return true;
+    }
+  }
+  
+  validatePassword() {
+    if(validator.isNull(this.state.password.trim())) {
+      this.setState({
+        passwordtips: "密码不能为空",
+      });
+      return false;
+    } else {
+      return true;
+    }
   }
   
   handleUsernameChange() {
@@ -52,20 +81,24 @@ class LoginForm extends React.Component {
                 <div style={styles.username}>
                   <TextField
                     hintText="Username or Email"
+                    errorText={this.state.usernametips}
                     fullWidth={true}
                     floatingLabelText="Username or Email"
                     value={this.state.username}
                     onChange={this.setValue.bind(this, 'username')}
+                    onBlur={this.validateUsername}
                   />
                 </div>
                 <div>
                   <TextField
                     hintText="Password"
+                    errorText={this.state.passwordtips}
                     type="password"
                     fullWidth={true}
                     floatingLabelText="Password"
                     value={this.state.password}
                     onChange={this.setValue.bind(this, 'password')}
+                    onBlur={this.validatePassword}
                   />
                 </div>
                 <div style={styles.submitBtn} className="pull-left">
