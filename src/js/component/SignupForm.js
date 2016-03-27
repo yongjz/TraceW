@@ -5,35 +5,72 @@ import TextField from 'material-ui/lib/text-field';
 import AccountIcon from 'material-ui/lib/svg-icons/action/account-circle';
 import ClearFix from 'material-ui/lib/clearfix';
 import { browserHistory } from 'react-router';
+import validator from 'validator';
 
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
+    this.validateUsername = this.validateUsername.bind(this);
+    this.validatePassword = this.validatePassword.bind(this);
+    this.validateComfirmPassword = this.validateComfirmPassword.bind(this);
     
     this.state = {
-      username: null,
-      password: null,
-      passwordConfirm: null
+      username: '',
+      password: '',
+      passwordConfirm: '',
+      usernametips: null,
+      passwordtips: null,
+      passwordConfirmtips: null,
     }
   }
   
-  handleLogin() {
-    browserHistory.push('/');
+  handleSignup() {
+    if(this.validateUsername() && this.validatePassword() && this.validateComfirmPassword()) {
+      browserHistory.push('/');
+    }
   }
   
-  handleUsernameChange() {
-    this.setState({
-      username: event.target.value
-    });
+  validateUsername() {
+    if(!validator.isEmail(this.state.username)) {
+      this.setState({
+        usernametips: '用户名不合法',
+      });
+      return false;
+    } else {
+      this.setState({
+        usernametips: '',
+      });
+      return true;
+    }
   }
   
-  handlePasswordChange() {
-    this.setState({
-      password: event.target.value
-    });
+  validatePassword() {
+    if(validator.isNull(this.state.password)) {
+      this.setState({
+        passwordtips: '密码不能为空',
+      });
+      return false;
+    } else {
+      this.setState({
+        passwordtips: '',
+      });
+      return true;
+    }
+  }
+  
+  validateComfirmPassword() {
+    if(this.state.password !== this.state.passwordConfirm) {
+      this.setState({
+        passwordConfirmtips: '两次密码输入不一致',
+      });
+      return false;
+    } else {
+      this.setState({
+        passwordConfirmtips: '',
+      });
+      return true;
+    }
   }
   
   setValue(field, event) {
@@ -54,30 +91,36 @@ class SignupForm extends React.Component {
                 <div>
                   <TextField
                     hintText="Username or Email"
+                    errorText={this.state.usernametips}
                     fullWidth={true}
                     floatingLabelText="Username or Email"
                     value={this.state.username}
                     onChange={this.setValue.bind(this, 'username')}
+                    onBlur={this.validateUsername}
                   />
                 </div>
                 <div>
                   <TextField
                     hintText="Password"
+                    errorText={this.state.passwordtips}
                     type="password"
                     fullWidth={true}
                     floatingLabelText="Password"
                     value={this.state.password}
                     onChange={this.setValue.bind(this, 'password')}
+                    onBlur={this.validatePassword}
                   />
                 </div>
                 <div>
                   <TextField
                     hintText="Confirm Password"
+                    errorText={this.state.passwordConfirmtips}
                     type="password"
                     fullWidth={true}
                     floatingLabelText="Confirm Password"
                     value={this.state.passwordConfirm}
                     onChange={this.setValue.bind(this, 'passwordConfirm')}
+                    onBlur={this.validateComfirmPassword}
                   />
                 </div>
                 <div style={styles.submitBtn} className="pull-left">
@@ -86,7 +129,7 @@ class SignupForm extends React.Component {
                     secondary={true}
                     icon={<AccountIcon />}
                     style={{ width: 200 }}
-                    onClick={this.handleLogin}
+                    onClick={this.handleSignup}
                   />
                 </div>
                 <ClearFix />

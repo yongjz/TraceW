@@ -16,8 +16,8 @@ class LoginForm extends React.Component {
     this.validatePassword = this.validatePassword.bind(this);
     
     this.state = {
-      username: null,
-      password: null,
+      username: '',
+      password: '',
       usernametips: null,
       passwordtips: null
     }
@@ -32,10 +32,13 @@ class LoginForm extends React.Component {
   validateUsername() {
     if(!validator.isEmail(this.state.username)) {
       this.setState({
-        usernametips: "用户名不合法",
+        usernametips: '用户名不合法',
       });
       return false;
     } else {
+      this.setState({
+        usernametips: '',
+      });
       return true;
     }
   }
@@ -43,10 +46,13 @@ class LoginForm extends React.Component {
   validatePassword() {
     if(validator.isNull(this.state.password.trim())) {
       this.setState({
-        passwordtips: "密码不能为空",
+        passwordtips: '密码不能为空',
       });
       return false;
     } else {
+      this.setState({
+        passwordtips: '',
+      });
       return true;
     }
   }
