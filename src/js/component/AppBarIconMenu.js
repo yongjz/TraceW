@@ -45,6 +45,7 @@ class AppBarIconMenu extends React.Component {
   render() {
     return (
       <AppBar
+        className="noprint"
         title={this.props.title}
         iconElementLeft={
           <div>

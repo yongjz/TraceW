@@ -6,7 +6,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <div className="sticky-footer">
+      <div className="sticky-footer noprint">
         <Divider style={styles.footDivider}/>
         <ul style={styles.list} className="list-inline">
           <li style={styles.item}>

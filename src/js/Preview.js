@@ -13,7 +13,7 @@ class Preview extends React.Component {
       <div>
         <Header title="Trace Web-UI"/>
         <div style={styles.context}>
-          <div>
+          <div className="noprint">
             <p style={styles.subtitle}>二维码制造－二维码确认</p>
             <Stepper secondStep={true}/>
             <ClearFix />
@@ -23,7 +23,7 @@ class Preview extends React.Component {
           <br />
           <QrCodeGridList />
         </div>
-        <Footer />
+        <Footer/>
       </div>
     );
   }
