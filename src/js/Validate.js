@@ -2,8 +2,8 @@ import React from 'react';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import MerchandiseCard from './component/MerchandiseCard';
-import DoneIcon from 'material-ui/lib/svg-icons/action/done';
-import WaringIcon from 'material-ui/lib/svg-icons/alert/warning';
+import DoneIcon from 'material-ui/svg-icons/action/done';
+import WaringIcon from 'material-ui/svg-icons/alert/warning';
 
 class Validate extends React.Component {
   render() {

@@ -4,12 +4,12 @@
  */
 
 import React from 'react';
-import RaisedButton from 'material-ui/lib/raised-button';
-import Dialog from 'material-ui/lib/dialog';
-import {deepOrange500} from 'material-ui/lib/styles/colors';
-import FlatButton from 'material-ui/lib/flat-button';
-import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+import RaisedButton from 'material-ui/raised-button';
+import Dialog from 'material-ui/dialog';
+import {deepOrange500} from 'material-ui/styles/colors';
+import FlatButton from 'material-ui/flat-button';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/MuiThemeProvider';
 
 const styles = {
   container: {

@@ -1,8 +1,8 @@
 import React from 'react';
-import TextField from 'material-ui/lib/text-field';
-import RaisedButton from 'material-ui/lib/raised-button';
-import FlatButton from 'material-ui/lib/flat-button';
-import Styles from 'material-ui/lib/styles';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import Styles from 'material-ui/styles';
 const colors = Styles.Colors;
 
 class Count extends React.Component {
@@ -11,26 +11,26 @@ class Count extends React.Component {
     this.onPressMinusHandler = this.onPressMinusHandler.bind(this);
     this.onPressPlusHandler = this.onPressPlusHandler.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
-    
+
     this.state = {
       merCounts: this.props.count,
     };
   }
-  
+
   onPressMinusHandler() {
     this.setState({
       merCounts: this.state.merCounts - 1,
     });
     this.props.handleCount(this.state.merCounts - 1);
   }
-  
+
   onPressPlusHandler() {
     this.setState({
       merCounts: this.state.merCounts + 1,
     });
     this.props.handleCount(this.state.merCounts + 1);
   }
-  
+
   onChangeHandler(event) {
     this.setState({
       //Convert string to number

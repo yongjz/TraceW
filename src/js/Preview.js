@@ -3,8 +3,8 @@ import React from 'react';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Stepper from './component/Stepper';
-import ClearFix from 'material-ui/lib/clearfix';
-import Divider from 'material-ui/lib/divider';
+import ClearFix from 'material-ui/internal/clearfix';
+import Divider from 'material-ui/divider';
 import QrCodeGridList from './component/QrCodeGridList';
 
 class Preview extends React.Component {
