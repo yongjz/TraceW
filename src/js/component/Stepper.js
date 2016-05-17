@@ -1,22 +1,21 @@
 import React from 'react';
-import Paper from 'material-ui/lib/paper';
-import CheckCircle from 'material-ui/lib/svg-icons/action/check-circle';
-import Avatar from 'material-ui/lib/avatar';
-import Styles from 'material-ui/lib/styles';
-const colors = Styles.Colors;
+import Paper from 'material-ui/Paper';
+import CheckCircle from 'material-ui/svg-icons/action/check-circle';
+import Avatar from 'material-ui/Avatar';
+import colors from 'material-ui/styles/colors';
 
 class Stepper extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   getIconStyles() {
     const {
       firstStep,
       secondStep,
       thirdStep,
     } = this.props;
-    
+
     const icon = {
       margin: 5,
     };
@@ -24,19 +23,19 @@ class Stepper extends React.Component {
       margin: 5,
       backgroundColor: colors.blue500
     };
-    
+
     const firstIconStyle = ((firstStep || secondStep || thirdStep) ?
       iconActive :
       icon);
-    
+
     const secondIconStyle = ((secondStep || thirdStep) ?
       iconActive :
       icon);
-      
+
       const thirdIconStyle = ((thirdStep) ?
       iconActive :
       icon);
-    
+
     const styles = {
       firstIconStyle: firstIconStyle,
       secondIconStyle: secondIconStyle,

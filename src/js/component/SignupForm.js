@@ -1,9 +1,9 @@
 import React from 'react';
-import RaisedButton from 'material-ui/lib/raised-button';
-import Checkbox from 'material-ui/lib/checkbox';
-import TextField from 'material-ui/lib/text-field';
-import AccountIcon from 'material-ui/lib/svg-icons/action/account-circle';
-import ClearFix from 'material-ui/lib/clearfix';
+import RaisedButton from 'material-ui/RaisedButton';
+import Checkbox from 'material-ui/Checkbox';
+import TextField from 'material-ui/TextField';
+import AccountIcon from 'material-ui/svg-icons/action/account-circle';
+import ClearFix from 'material-ui/internal/clearfix';
 import { browserHistory } from 'react-router';
 import validator from 'validator';
 
@@ -14,7 +14,7 @@ class SignupForm extends React.Component {
     this.validateUsername = this.validateUsername.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
     this.validateComfirmPassword = this.validateComfirmPassword.bind(this);
-    
+
     this.state = {
       username: '',
       password: '',
@@ -24,13 +24,13 @@ class SignupForm extends React.Component {
       passwordConfirmtips: null,
     }
   }
-  
+
   handleSignup() {
     if(this.validateUsername() && this.validatePassword() && this.validateComfirmPassword()) {
       browserHistory.push('/');
     }
   }
-  
+
   validateUsername() {
     if(!validator.isEmail(this.state.username)) {
       this.setState({
@@ -44,7 +44,7 @@ class SignupForm extends React.Component {
       return true;
     }
   }
-  
+
   validatePassword() {
     if(validator.isNull(this.state.password)) {
       this.setState({
@@ -58,7 +58,7 @@ class SignupForm extends React.Component {
       return true;
     }
   }
-  
+
   validateComfirmPassword() {
     if(this.state.password !== this.state.passwordConfirm) {
       this.setState({
@@ -72,13 +72,13 @@ class SignupForm extends React.Component {
       return true;
     }
   }
-  
+
   setValue(field, event) {
     var object = {};
     object[field] = event.target.value;
     this.setState(object);
   }
-  
+
   render() {
     return (
       <div style={styles.content}>

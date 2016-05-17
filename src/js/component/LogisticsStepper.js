@@ -1,12 +1,10 @@
 import React from 'react';
-import Avatar from 'material-ui/lib/avatar';
-import styles from 'material-ui/lib/styles';
-import HomeIcon from 'material-ui/lib/svg-icons/action/home';
-import StoreIcon from 'material-ui/lib/svg-icons/maps/local-grocery-store';
-import ShippingIcon from 'material-ui/lib/svg-icons/maps/local-shipping';
+import Avatar from 'material-ui/Avatar';
+import colors from 'material-ui/styles/colors';
+import HomeIcon from 'material-ui/svg-icons/action/home';
+import StoreIcon from 'material-ui/svg-icons/maps/local-grocery-store';
+import ShippingIcon from 'material-ui/svg-icons/maps/local-shipping';
 import '../../css/stepper.css';
-
-const colors = styles.Colors;
 
 class LogisticsStepper extends React.Component {
   render() {

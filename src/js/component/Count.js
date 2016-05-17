@@ -2,8 +2,7 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import Styles from 'material-ui/styles';
-const colors = Styles.Colors;
+import colors from 'material-ui/styles/colors';
 
 class Count extends React.Component {
   constructor(props, context) {

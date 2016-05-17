@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/sticky-footer.css';
-import Divider from 'material-ui/lib/divider';
+import Divider from 'material-ui/Divider';
 
 class Footer extends React.Component {
 
@@ -22,7 +22,7 @@ class Footer extends React.Component {
             <a href="#">Help</a>
           </li>
         </ul>
-        
+
       </div>
     );
   }

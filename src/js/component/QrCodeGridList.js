@@ -1,19 +1,17 @@
 import React from 'react';
-import GridList from 'material-ui/lib/grid-list/grid-list';
-import GridTile from 'material-ui/lib/grid-list/grid-tile';
-import StarBorder from 'material-ui/lib/svg-icons/toggle/star-border';
-import IconButton from 'material-ui/lib/icon-button';
-import Paper from 'material-ui/lib/paper';
-import RaisedButton from 'material-ui/lib/raised-button';
-import Divider from 'material-ui/lib/divider';
-import Dialog from 'material-ui/lib/dialog';
-import FlatButton from 'material-ui/lib/flat-button';
-import DoneIcon from 'material-ui/lib/svg-icons/action/done';
-import stylesLib from 'material-ui/lib/styles';
+import GridList from 'material-ui/GridList/GridList';
+import GridTile from 'material-ui/GridList/GridTile';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import IconButton from 'material-ui/IconButton';
+import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
+import Divider from 'material-ui/Divider';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import DoneIcon from 'material-ui/svg-icons/action/done';
+import colors from 'material-ui/styles/colors';
 import $ from '../../lib/jquery-1.12.1';
 import '../../css/print.css';
-
-const colors = stylesLib.Colors;
 
 class QrCodeGridList extends React.Component {
   constructor(props) {
@@ -239,7 +237,7 @@ const styles = {
     padding: 10,
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: colors.grey100
+    // backgroundColor: colors.grey100
   },
   doneBtn: {
     marginBottom: 10,

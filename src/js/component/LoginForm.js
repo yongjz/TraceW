@@ -1,8 +1,8 @@
 import React from 'react';
-import RaisedButton from 'material-ui/lib/raised-button';
-import Checkbox from 'material-ui/lib/checkbox';
-import TextField from 'material-ui/lib/text-field';
-import AccountIcon from 'material-ui/lib/svg-icons/action/account-circle';
+import RaisedButton from 'material-ui/RaisedButton';
+import Checkbox from 'material-ui/Checkbox';
+import TextField from 'material-ui/TextField';
+import AccountIcon from 'material-ui/svg-icons/action/account-circle';
 import { browserHistory } from 'react-router';
 import validator from 'validator';
 
@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.validateUsername = this.validateUsername.bind(this);
     this.validatePassword = this.validatePassword.bind(this);
-    
+
     this.state = {
       username: '',
       password: '',
@@ -22,13 +22,13 @@ class LoginForm extends React.Component {
       passwordtips: null
     }
   }
-  
+
   handleLogin() {
     if(this.validateUsername() && this.validatePassword()) {
       browserHistory.push('/');
     }
   }
-  
+
   validateUsername() {
     if(!validator.isEmail(this.state.username)) {
       this.setState({
@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
       return true;
     }
   }
-  
+
   validatePassword() {
     if(validator.isNull(this.state.password.trim())) {
       this.setState({
@@ -56,25 +56,25 @@ class LoginForm extends React.Component {
       return true;
     }
   }
-  
+
   handleUsernameChange() {
     this.setState({
       username: event.target.value
     });
   }
-  
+
   handlePasswordChange() {
     this.setState({
       password: event.target.value
     });
   }
-  
+
   setValue(field, event) {
     var object = {};
     object[field] = event.target.value;
     this.setState(object);
   }
-  
+
   render() {
     return (
       <div style={styles.content}>
