@@ -4,7 +4,7 @@ import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Avatar from 'material-ui/Avatar';
 import colors from 'material-ui/styles/colors';
 
-class Stepper extends React.Component {
+class Stepper1 extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -21,7 +21,7 @@ class Stepper extends React.Component {
     };
     const iconActive = {
       margin: 5,
-      backgroundColor: colors.blue500
+      // backgroundColor: 'blue'
     };
 
     const firstIconStyle = ((firstStep || secondStep || thirdStep) ?
@@ -101,4 +101,4 @@ const styles = {
   }
 };
 
-export default Stepper;
+export default Stepper1;
